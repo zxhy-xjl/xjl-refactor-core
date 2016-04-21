@@ -1,2 +1,2 @@
-drop table abc4;
-create table abc4(a varchar2(20));
+drop table xjl_refactor_flow;
+create table xjl_refactor_flow(flow_id varchar2(36), flow_name varchar2(50));
