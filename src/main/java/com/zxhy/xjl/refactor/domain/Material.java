@@ -11,6 +11,9 @@ public class Material {
 	private String name;
 	//材料样例图片，供填写参考用
 	private String samplePicUrl;
+	//模板
+	private String templetUrl;
+	
 	public String getId() {
 		return id;
 	}
@@ -28,6 +31,12 @@ public class Material {
 	}
 	public void setSamplePicUrl(String samplePicUrl) {
 		this.samplePicUrl = samplePicUrl;
+	}
+	public String getTempletUrl() {
+		return templetUrl;
+	}
+	public void setTempletUrl(String templetUrl) {
+		this.templetUrl = templetUrl;
 	}
 	
 	
