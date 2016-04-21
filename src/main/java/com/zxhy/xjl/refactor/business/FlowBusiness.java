@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 import com.zxhy.xjl.refactor.domain.Flow;
 import com.zxhy.xjl.refactor.service.FlowService;
 /**
- * 
+ * 流程业务类，和service的功能重复，后续不再支持
  * @author leasonlive
  *
  */
 @Component
+@Deprecated
 public class FlowBusiness {
 	@Autowired
 	private FlowService flowService;
@@ -28,6 +29,6 @@ public class FlowBusiness {
 		return this.flowService.addFlow(flow);
 	}
 	public List<Flow> getAll(){
-		return this.flowService.query();
+		return this.flowService.find();
 	}
 }

@@ -23,7 +23,7 @@ public class FlowService {
 		this.flowMapper.insert(flow);
 		return flow.getFlowId();
 	}
-	public List<Flow> query(){
+	public List<Flow> find(){
 		return this.flowMapper.selectAll();
 	}
 }

@@ -15,5 +15,4 @@ public interface FlowMapper {
 	public int insert(Flow flow);
 	@Select("select flow_id as flowId, flow_name as flowName from xjl_refactor_flow")
 	public List<Flow> selectAll();
-
 }
