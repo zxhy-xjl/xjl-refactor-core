@@ -3,8 +3,13 @@ package com.zxhy.xjl.refactor.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zxhy.xjl.refactor.domain.Material;
 import com.zxhy.xjl.refactor.mapper.FlowMaterialMapper;
@@ -12,6 +17,7 @@ import com.zxhy.xjl.refactor.mapper.MaterialMapper;
 
 @Service
 public class MaterialService {
+	private static Logger log = LoggerFactory.getLogger(MaterialService.class);
 	@Autowired
 	private MaterialMapper materialMapper;
 	@Autowired
@@ -41,8 +47,14 @@ public class MaterialService {
 	 * @param material
 	 * @return
 	 */
+	@Transactional(propagation=Propagation.REQUIRES_NEW,
+            isolation=Isolation.READ_COMMITTED)
 	public int add(String flowId, Material material){
+		log.debug("name:" + material.getName());
+		log.debug("sample:" + material.getSamplePicUrl());
+		log.debug("TempletUrl" + material.getTempletUrl());
 		this.add(material);
+		log.debug("flowId:" + flowId);
 		return this.relatedToFlow(flowId, material.getId());
 	}
 	/**

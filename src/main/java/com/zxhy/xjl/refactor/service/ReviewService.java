@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.github.pagehelper.PageHelper;
 import com.zxhy.xjl.refactor.domain.Review;
 import com.zxhy.xjl.refactor.mapper.ReviewMapper;
 
@@ -36,7 +37,8 @@ public class ReviewService {
 	 * @param materialId
 	 * @return
 	 */
-	public List<Review> findByMaterialId(String materialId){
+	public List<Review> findByMaterialId(String materialId, int page, int pageSize){
+		PageHelper.startPage(page, pageSize);
 		return this.reviewMapper.selectByMaterialId(materialId);
 	}
 	/**

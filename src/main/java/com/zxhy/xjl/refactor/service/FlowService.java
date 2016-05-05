@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.zxhy.xjl.refactor.domain.Flow;
 import com.zxhy.xjl.refactor.mapper.FlowMapper;
 
@@ -23,7 +24,8 @@ public class FlowService {
 		this.flowMapper.insert(flow);
 		return flow.getFlowId();
 	}
-	public List<Flow> find(){
+	public List<Flow> find(int page, int pageSize){
+		PageHelper.startPage(page, pageSize);
 		return this.flowMapper.selectAll();
 	}
 }

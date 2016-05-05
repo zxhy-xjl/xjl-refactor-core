@@ -28,7 +28,7 @@ public class FlowBusiness {
 	public String addFlow(Flow flow){
 		return this.flowService.addFlow(flow);
 	}
-	public List<Flow> getAll(){
-		return this.flowService.find();
+	public List<Flow> getAll(int page, int pageSize){
+		return this.flowService.find(page, pageSize);
 	}
 }
