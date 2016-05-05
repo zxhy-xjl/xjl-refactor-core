@@ -18,9 +18,16 @@ public class FlowServiceTest {
 	private FlowService flowService;
 	@Test
 	public void find(){
-		List<Flow> list = this.flowService.find(1, 2);
+		List<Flow> list = this.flowService.find(1, 10);
 		PageInfo<Flow> pageInfo = new PageInfo<Flow>(list);
+		for (Flow flow : list) {
+			System.out.println(flow.getFlowName());
+		}
 		System.out.println(pageInfo.getTotal());
 		System.out.println(list.size());
+	}
+	@Test
+	public void insert(){
+		this.flowService.addFlow("测试分页");
 	}
 }

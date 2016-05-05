@@ -16,7 +16,7 @@ public class FlowService {
 	private FlowMapper flowMapper;
 	public String addFlow(String flowName){
 		Flow flow = new Flow();
-		flow.setFlowId(UUID.randomUUID().toString());
+		flow.setFlowName(flowName);
 		return this.addFlow(flow);
 	}
 	public String addFlow(Flow flow){
